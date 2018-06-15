@@ -20,6 +20,23 @@ a {
   color: #343434;
 }
 
+.adventure-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.single-adventure{
+    margin: 10px;
+    cursor: pointer;
+}
+.latestImage{
+    width: 200px;
+    height: 100px;
+}
+.adventure-text{
+    font-size: 20px;
+}
+
 .slide-text{
     font-size: 30px;
     text-align: center;
@@ -212,6 +229,7 @@ button:focus {outline:0;}
   display: inline-block;
   color: grey;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 #create_button:hover {

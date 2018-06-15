@@ -19,6 +19,10 @@ $('#carouselExample').on('slide.bs.carousel', function (e) {
     }
 });
 
+$( ".single-adventure" ).click(function() {
+    window.location.href = "/adventure/" + $(this).attr('id');
+});
+
 function create_adventure(){
     var request = new XMLHttpRequest();
     var url = "/create/add";
@@ -31,26 +35,30 @@ function create_adventure(){
     if(daysInput && levelInput && playersInput && encounterInput){
         if(/^\d+$/.test(daysInput) && /^\d+$/.test(levelInput) &&
          /^\d+$/.test(playersInput) && /^\d+$/.test(encounterInput)){
-            request.open("POST", url);
+             if(parseInt(daysInput) >= 5){
 
-            var requestBody = JSON.stringify({
-              days: daysInput,
-              level: levelInput,
-              players: playersInput,
-              encounters: encounterInput
-            });
+                request.open("POST", url);
 
-            request.addEventListener('load', function (event) {
-              if (event.target.status === 200) {
-                  alert(event.target.response);
-                  window.location.href = "/adventure/" + JSON.parse(event.target.response).id;
-              } else {
-                alert("Error storing adventure: " + event.target.response);
-              }
-            });
+                var requestBody = JSON.stringify({
+                  days: daysInput,
+                  level: levelInput,
+                  players: playersInput,
+                  encounters: encounterInput
+                });
 
-            request.setRequestHeader('Content-Type', 'application/json');
-            request.send(requestBody);
+                request.addEventListener('load', function (event) {
+                  if (event.target.status === 200) {
+                      window.location.href = "/adventure/" + JSON.parse(event.target.response).id;
+                  } else {
+                    alert("Error storing adventure: " + event.target.response);
+                  }
+                });
+
+                request.setRequestHeader('Content-Type', 'application/json');
+                request.send(requestBody);
+            } else{
+                alert("please enter at least 5 days");
+            }
         } else {
             alert("Please ensure all fields are integers");
         }

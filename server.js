@@ -46,7 +46,10 @@ app.engine('handlebars', exphbs(
                     "-": lvalue - rvalue,
                     "*": lvalue * rvalue,
                     "/": lvalue / rvalue,
-                    "%": lvalue % rvalue
+                    "%": lvalue % rvalue,
+                    ">": lvalue > rvalue,
+                    "<": lvalue < rvalue,
+                    "==": lvalue == rvalue
                 }[operator];
             }
         }
@@ -65,6 +68,20 @@ app.get('/create', function (req, res) {
 app.get('/about', function (req, res) {
   res.status(200).render('about', {
   });
+});
+
+app.get('/latest', function (req, res, next) {
+    var adventuresCollection = mongoDB.collection('adventures');
+
+    adventuresCollection.find().toArray(function (err, adven) {
+        if (err) {
+          res.status(500).send("Error fetching person from DB.");
+        } else {
+          res.status(200).render('latest', {
+              "adventures" : adven.sort(function(a,b){return a.adventure_id - b.adventure_id}).slice(-30).reverse()
+          });
+        }
+    });
 });
 
 app.get('/adventure/:id', function (req, res, next) {
@@ -86,7 +103,7 @@ app.get('/adventure', function (req, res) {
 });
 
 app.get('/', function (req, res) {
-    res.render('home', {
+    res.render('create', {
     });
 });
 

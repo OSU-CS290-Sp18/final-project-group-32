@@ -1,0 +1,29 @@
+<div class="about">
+  <div class="header">Newest Adventures</div>
+  <main class="adventure-container">
+      {{#each adventures}}
+        <article class="single-adventure" id={{this.adventure_id}}>
+            {{#if (math this.num_encounters ">" 6)}}
+                <img class="latestImage" src="/Images/deadly.png" alt="slide">
+            {{else}}
+                {{#if (math this.num_encounters ">" 4)}}
+                    <img class="latestImage" src="/Images/hard.png" alt="slide">
+                {{else}}
+                    {{#if (math this.num_encounters ">" 2)}}
+                        <img class="latestImage" src="/Images/med.png" alt="slide">
+                    {{else}}
+                        <img class="latestImage" src="/Images/easy.png" alt="slide">
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+            <div class="adventure-text">
+                Adventure ID: {{this.adventure_id}} <br>
+                Days: {{this.num_days}} <br>
+                Adventurer Level: {{this.level}} <br>
+                Number of Adventurers: {{this.num_players}} <br>
+                Encounters per Day: {{this.num_encounters}} <br>
+            </div>
+        </article>
+      {{/each}}
+  </main>
+</div>

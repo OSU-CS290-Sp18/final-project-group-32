@@ -90,11 +90,19 @@ app.post('/create/add',
           var days_gen = [];
           for(var i = 0; i < parseInt(req.body.days); i++){
               var encounters = [];
+              var dangerSum = 0;
               for(var j = 0; j < parseInt(req.body.encounters); j++){
                   var r = Math.floor(Math.random() * 20);
-                  encounters.push(enconterData.encounters[r].monsters);
+                  dangerSum += parseInt(enconterData.encounters[r].danger);
+                  encounters.push({
+                      "monsters": enconterData.encounters[r].monsters,
+                      "danger": parseInt(enconterData.encounters[r].danger)
+                  });
               }
-              days_gen.push(encounters);
+              days_gen.push({
+                  "encounters": encounters,
+                  "danger_sum": dangerSum > 8 ? (dangerSum > 12 ? "deadly" : "hard") : (dangerSum > 4 ? "med" : "easy")
+              });
           }
 
           var adventures = mongoDB.collection('adventures');
@@ -110,7 +118,7 @@ app.post('/create/add',
           );
           adventures_count++;
 
-          res.status(200).send(req.body);
+          res.status(200).send({"id": adventures_count-1});
       } else {
           res.status(400).send("Specify all parameters");
       }

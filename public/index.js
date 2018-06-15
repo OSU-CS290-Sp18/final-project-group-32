@@ -42,7 +42,8 @@ function create_adventure(){
 
             request.addEventListener('load', function (event) {
               if (event.target.status === 200) {
-                alert("callback: " + event.target.response);
+                  alert(event.target.response);
+                  window.location.href = "/adventure/" + JSON.parse(event.target.response).id;
               } else {
                 alert("Error storing adventure: " + event.target.response);
               }

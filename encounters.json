@@ -4,32 +4,38 @@
       "monsters":[
         "Blink Dog",
         "Blink Dog"
-      ]
+      ],
+      "danger": 1
+
     },
     {
       "monsters":[
         "Myconid Adult",
         "Myconid Sprout"
-      ]
+      ],
+      "danger": 1
     },
     {
       "monsters":[
         "Thug",
         "Matiff"
-      ]
+      ],
+      "danger": 1
     },
     {
       "monsters":[
         "Pony",
         "Pony",
         "Pony"
-      ]
+      ],
+      "danger": 1
     },
     {
       "monsters":[
         "Giant Centipede",
         "Giant Centipede"
-      ]
+      ],
+      "danger": 1
     },
     {
       "monsters":[
@@ -38,7 +44,8 @@
         "Fying Snake",
         "Fying Snake",
         "Fying Snake"
-      ]
+      ],
+      "danger": 2
     },
     {
       "monsters":[
@@ -47,7 +54,8 @@
         "Stirge",
         "Stirge",
         "Stirge"
-      ]
+      ],
+      "danger": 2
     },
     {
       "monsters":[
@@ -56,7 +64,8 @@
         "Matiff",
         "Matiff",
         "Matiff"
-      ]
+      ],
+      "danger": 2
     },
     {
       "monsters":[
@@ -66,7 +75,8 @@
         "Giant Crab",
         "Giant Crab",
         "Crab"
-      ]
+      ],
+      "danger": 2
     },
     {
       "monsters":[
@@ -75,67 +85,78 @@
         "Blood Hawk",
         "Blood Hawk",
         "Blood Hawk"
-      ]
+      ],
+      "danger": 2
     },
     {
       "monsters":[
         "Goblin Boss",
         "Wolf"
-      ]
+      ],
+      "danger": 3
     },
     {
       "monsters":[
         "Ghoul",
         "Skeleton"
-      ]
+      ],
+      "danger": 3
     },
     {
       "monsters":[
         "Giant Vulture",
         "Vulture"
-      ]
+      ],
+      "danger": 3
     },
     {
       "monsters":[
         "Kuo-tao Whip",
         "Kuo-toa"
-      ]
+      ],
+      "danger": 3
     },
     {
       "monsters":[
         "Qasit",
         "Manes"
-      ]
+      ],
+      "danger": 3
     },
     {
       "monsters":[
         "Ghoul",
         "Ghoul"
-      ]
+      ],
+      "danger": 3
     },
     {
       "monsters":[
         "Myconid adult",
         "Myconid adult",
         "Myconid adult"
-      ]
+      ],
+      "danger": 4
     },
     {
       "monsters":[
         "Peryton"
-      ]
+      ],
+      "danger": 4
     },
     {
       "monsters":[
         "Sahuagin",
         "Sahuagin",
         "Sahuagin"
-      ]
+      ],
+      "danger": 4
     },
     {
       "monsters":[
         "Hook horror"
-      ]
+      ],
+      "danger": 4
     }
   ]
 }

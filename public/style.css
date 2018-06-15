@@ -27,7 +27,11 @@ a {
 }
 .single-adventure{
     margin: 10px;
+    padding: 10px;
     cursor: pointer;
+    width:280px;
+    border: 2px solid #00303f;;
+    border-radius: 5px;
 }
 .latestImage{
     width: 200px;

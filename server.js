@@ -38,6 +38,11 @@ app.use(bodyParser.json());
 
 app.use('/', express.static('public'));
 
+app.get('/create', function (req, res) {
+  res.status(200).render('create', {
+  });
+});
+
 app.get('/about', function (req, res) {
   res.status(200).render('about', {
   });

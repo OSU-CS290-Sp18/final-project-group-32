@@ -8,6 +8,7 @@
 
 var path = require('path');
 var express = require('express');
+var bodyParser = require('body-parser')
 var fs = require('fs');
 
 var MongoClient = require('mongodb').MongoClient;
@@ -33,6 +34,7 @@ app.engine('handlebars', exphbs(
     }
 ));
 app.set('view engine', 'handlebars');
+app.use(bodyParser.json());
 
 app.use('/', express.static('public'));
 
@@ -59,13 +61,14 @@ app.get('*', function (req, res) {
   });
 });
 
-app.post('/create',
+app.post('/create/add',
   function (req, res, next) {
       /*if (req.body && req.body.photoURL) {
           console.log();
       } else {
           res.status(400).send("Request must specify ");
       }*/
+      res.status(200).send(req.body);
       console.log(req.body);
   });
 

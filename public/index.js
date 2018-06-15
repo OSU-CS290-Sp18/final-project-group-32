@@ -21,16 +21,18 @@ $('#carouselExample').on('slide.bs.carousel', function (e) {
 test_send();
 function test_send(){
     var request = new XMLHttpRequest();
-    var url = "/create";
+    var url = "/create/add";
     request.open("POST", url);
 
     var requestBody = JSON.stringify({
-      magic: "heyfag"
+      magic: "heyfag",
+      asdf: "asdf",
+      wow: "magic"
     });
 
     request.addEventListener('load', function (event) {
       if (event.target.status === 200) {
-        alert("callback");
+        alert("callback: " + event.target.response);
       } else {
         alert("Error storing photo: " + event.target.response);
       }

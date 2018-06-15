@@ -152,6 +152,49 @@ img {
   padding-top: 30px;
 }
 
+.search_cont{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 99%;
+  color: #fff;
+  background: #00303f;
+  padding: 10px;
+  text-align: center;
+}
+
+.search_cont > * {
+  flex: 1 100%;
+}
+
+.search_chunk {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+button:focus {outline:0;}
+#create_button {
+  background: #414141;
+  border: none;
+  margin-top: 10px;
+  padding: 5px;
+  text-decoration: none;
+  display: inline-block;
+  color: grey;
+  border-radius: 4px;
+}
+
+#create_button:hover {
+  border: none;
+  color: #fff;
+}
+
+#create_button:active {
+  border: none;
+  background: #DCAE1D;
+}
+
+
 @media (min-width: 768px) {
 
     /* show 3 items */

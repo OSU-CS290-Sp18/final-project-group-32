@@ -144,11 +144,11 @@ app.post('/create/add',
                   num_players: parseInt(req.body.players),
                   num_encounters: parseInt(req.body.encounters),
                   days: days_gen
+              }, function(err, doc){
+                  adventures_count++;
+                  res.status(200).send({"id": adventures_count-1});
               }
           );
-          adventures_count++;
-
-          res.status(200).send({"id": adventures_count-1});
       } else {
           res.status(400).send("Specify all parameters");
       }

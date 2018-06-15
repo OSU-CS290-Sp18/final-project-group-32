@@ -2,14 +2,9 @@
     <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner row w-100 mx-auto" role="listbox">
             {{>slide img="//placehold.it/600x400/000/fff?text=1" active=true}}
-            {{>slide img="//placehold.it/600x400?text=2"}}
-            {{>slide img="//placehold.it/600x400?text=3"}}
-            {{>slide img="//placehold.it/600x400?text=4"}}
-            {{>slide img="//placehold.it/600x400?text=5"}}
-            {{>slide img="//placehold.it/600x400?text=6"}}
-            {{>slide img="//placehold.it/600x400?text=7"}}
-            {{>slide img="//placehold.it/600x400?text=8"}}
-            {{>slide img="//placehold.it/600x400?text=9"}}
+            {{#each days}}
+                {{>slide img="//placehold.it/600x400?text=2"}}
+            {{/each}}
         </div>
         <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <i class="fa fa-chevron-left fa-lg text-muted"></i>

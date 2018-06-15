@@ -2,14 +2,20 @@
  * Write your routing code in this file.  Make sure to add your name and
  * @oregonstate.edu email address below.
  *
- * Name: Johannes Freischuetz
- * Email: freischj@oregonstate.edu
+ * Name: Johannes Freischuetz, Fern Bostelman-Rinaldi
+ * Email: freischj@oregonstate.edu, bostelmf@oregonstate.edu
  */
 
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser')
 var fs = require('fs');
+
+var enconterData;
+fs.readFile('encounters.json', 'utf8', function (err, data) {
+  if (err) throw err;
+  enconterData = JSON.parse(data);
+});
 
 var MongoClient = require('mongodb').MongoClient;
 var mongoHost = process.env.MONGO_HOST || 'classmongo.engr.oregonstate.edu';
@@ -85,7 +91,8 @@ app.post('/create/add',
           for(var i = 0; i < parseInt(req.body.days); i++){
               var encounters = [];
               for(var j = 0; j < parseInt(req.body.encounters); j++){
-                  encounters.push(i+j);
+                  var r = Math.floor(Math.random() * 20);
+                  encounters.push(enconterData.encounters[r].monsters);
               }
               days_gen.push(encounters);
           }

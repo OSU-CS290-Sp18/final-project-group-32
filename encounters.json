@@ -1,0 +1,141 @@
+{
+  "encounters": [
+    {
+      "monsters":[
+        "Blink Dog",
+        "Blink Dog"
+      ]
+    },
+    {
+      "monsters":[
+        "Myconid Adult",
+        "Myconid Sprout"
+      ]
+    },
+    {
+      "monsters":[
+        "Thug",
+        "Matiff"
+      ]
+    },
+    {
+      "monsters":[
+        "Pony",
+        "Pony",
+        "Pony"
+      ]
+    },
+    {
+      "monsters":[
+        "Giant Centipede",
+        "Giant Centipede"
+      ]
+    },
+    {
+      "monsters":[
+        "Fying Snake",
+        "Fying Snake",
+        "Fying Snake",
+        "Fying Snake",
+        "Fying Snake"
+      ]
+    },
+    {
+      "monsters":[
+        "Stirge",
+        "Stirge",
+        "Stirge",
+        "Stirge",
+        "Stirge"
+      ]
+    },
+    {
+      "monsters":[
+        "Bandit",
+        "Bandit",
+        "Matiff",
+        "Matiff",
+        "Matiff"
+      ]
+    },
+    {
+      "monsters":[
+        "Giant Crab",
+        "Giant Crab",
+        "Giant Crab",
+        "Giant Crab",
+        "Giant Crab",
+        "Crab"
+      ]
+    },
+    {
+      "monsters":[
+        "Blood Hawk",
+        "Blood Hawk",
+        "Blood Hawk",
+        "Blood Hawk",
+        "Blood Hawk"
+      ]
+    },
+    {
+      "monsters":[
+        "Goblin Boss",
+        "Wolf"
+      ]
+    },
+    {
+      "monsters":[
+        "Ghoul",
+        "Skeleton"
+      ]
+    },
+    {
+      "monsters":[
+        "Giant Vulture",
+        "Vulture"
+      ]
+    },
+    {
+      "monsters":[
+        "Kuo-tao Whip",
+        "Kuo-toa"
+      ]
+    },
+    {
+      "monsters":[
+        "Qasit",
+        "Manes"
+      ]
+    },
+    {
+      "monsters":[
+        "Ghoul",
+        "Ghoul"
+      ]
+    },
+    {
+      "monsters":[
+        "Myconid adult",
+        "Myconid adult",
+        "Myconid adult"
+      ]
+    },
+    {
+      "monsters":[
+        "Peryton"
+      ]
+    },
+    {
+      "monsters":[
+        "Sahuagin",
+        "Sahuagin",
+        "Sahuagin"
+      ]
+    },
+    {
+      "monsters":[
+        "Hook horror"
+      ]
+    }
+  ]
+}

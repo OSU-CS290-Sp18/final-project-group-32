@@ -96,6 +96,30 @@ a:focus {
   display: none;
 }
 
+.about{
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+.about > *{
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.header {
+  background: #00303f;
+}
+
+.header2{
+  
+}
+
+.main {
+  text-align: left;
+  background: 056571;
+}
+
 @media (min-width: 768px) {
 
     /* show 3 items */

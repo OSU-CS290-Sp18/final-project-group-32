@@ -36,7 +36,20 @@ app.set('view engine', 'handlebars');
 
 app.use('/', express.static('public'));
 
+app.get('/about', function (req, res) {
+  res.status(200).render('about', {
+  });
+});
+
 app.get('/', function (req, res) {
+    /*var scenarioCollection = mongoDB.collection('travels');
+    scenarioCollection.find().toArray(function (err, scenarios) {
+        if (err) {
+            res.status(500).send("Error fetching Database.");
+        } else {
+            console.log(scenarios);
+        }
+    });*/
     res.render('slideshow', {
     });
 });
@@ -45,6 +58,16 @@ app.get('*', function (req, res) {
   res.status(404).render('404', {
   });
 });
+
+app.post('/create',
+  function (req, res, next) {
+      /*if (req.body && req.body.photoURL) {
+          console.log();
+      } else {
+          res.status(400).send("Request must specify ");
+      }*/
+      console.log(req.body);
+  });
 
 MongoClient.connect(mongoURL, function (err, client) {
   if (err) {

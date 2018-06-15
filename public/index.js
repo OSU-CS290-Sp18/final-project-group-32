@@ -1,3 +1,5 @@
+document.getElementById("createEncounter").addEventListener("onclick", create_adventure());
+
 $('#carouselExample').on('slide.bs.carousel', function (e) {
 
     var $e = $(e.relatedTarget);
@@ -18,16 +20,21 @@ $('#carouselExample').on('slide.bs.carousel', function (e) {
         }
     }
 });
-test_send();
-function test_send(){
+
+function create_adventure(){
     var request = new XMLHttpRequest();
     var url = "/create/add";
     request.open("POST", url);
+    var daysInput = document.getElementById('daysInput').value;
+    var levelInput = document.getElementById('levelInput').value;
+    var playersInput = document.getElementById('playersInput').value;
+    var encounterInput = document.getElementById('encounterInput').value;
 
     var requestBody = JSON.stringify({
-      magic: "heyfag",
-      asdf: "asdf",
-      wow: "magic"
+      days: daysInput,
+      level: levelInput,
+      players: playersInput,
+      encounters: encounterInput
     });
 
     request.addEventListener('load', function (event) {

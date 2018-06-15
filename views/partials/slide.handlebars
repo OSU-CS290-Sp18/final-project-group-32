@@ -1,3 +1,29 @@
 <div class="carousel-item col-md-3 {{@index}} {{#if @first}}active{{/if}}">
-    <img class="img-fluid mx-auto d-block blur" src="/Images/{{danger_sum}}.jpg" alt="slide">
+    <div class="img-fluid mx-auto d-block">
+        <div class="slide">
+            <span class="imagecontainer">
+                <img class="slideImage" src="/Images/{{danger_sum}}.png" alt="slide">
+            </span>
+            <div class="slide-text">
+                Day {{math @index "+" 1}}
+            </div>
+            <div class="slide-encounters">
+                {{#each encounters}}
+                    <div class="single-encounter">
+                        <div class="encounter-text">
+                            Encounter {{math @index "+" 1}}:
+                        </div>
+                        <div class="monster-container">
+                            {{#each monsters}}
+                                <div class="single-monster">
+                                    Monster {{this}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
 </div>

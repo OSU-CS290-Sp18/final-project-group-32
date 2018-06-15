@@ -9,15 +9,6 @@ html, body{
     overflow: auto;
 }
 
-.blur {
-    filter: blur(5px);
-        -webkit-filter: blur(2px);
-        -moz-filter: blur(2px);
-        -o-filter: blur(2px);
-        -ms-filter: blur(2px);
-    margin: -2px -4px -4px -2px;
-}
-
 body {
   font-family: Sans-Serif;
   margin: 0;
@@ -27,6 +18,36 @@ body {
 a {
   text-decoration: none;
   color: #343434;
+}
+
+.slide-text{
+    font-size: 30px;
+    text-align: center;
+}
+
+.slide-encounters{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.encounter-text{
+    font-size: 20px;
+}
+
+.single-encounter{
+    margin: 10px;
+}
+
+.monster-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.single-monster{
+    font-size: 15px;
+    margin: 10px;
 }
 
 .site-title {

@@ -1,5 +1,3 @@
-document.getElementById("createEncounter").addEventListener("onclick", create_adventure());
-
 $('#carouselExample').on('slide.bs.carousel', function (e) {
 
     var $e = $(e.relatedTarget);
@@ -24,27 +22,38 @@ $('#carouselExample').on('slide.bs.carousel', function (e) {
 function create_adventure(){
     var request = new XMLHttpRequest();
     var url = "/create/add";
-    request.open("POST", url);
+
     var daysInput = document.getElementById('daysInput').value;
     var levelInput = document.getElementById('levelInput').value;
     var playersInput = document.getElementById('playersInput').value;
     var encounterInput = document.getElementById('encounterInput').value;
 
-    var requestBody = JSON.stringify({
-      days: daysInput,
-      level: levelInput,
-      players: playersInput,
-      encounters: encounterInput
-    });
+    if(daysInput && levelInput && playersInput && encounterInput){
+        if(/^\d+$/.test(daysInput) && /^\d+$/.test(levelInput) &&
+         /^\d+$/.test(playersInput) && /^\d+$/.test(encounterInput)){
+            request.open("POST", url);
 
-    request.addEventListener('load', function (event) {
-      if (event.target.status === 200) {
-        alert("callback: " + event.target.response);
-      } else {
-        alert("Error storing photo: " + event.target.response);
-      }
-    });
+            var requestBody = JSON.stringify({
+              days: daysInput,
+              level: levelInput,
+              players: playersInput,
+              encounters: encounterInput
+            });
 
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.send(requestBody);
+            request.addEventListener('load', function (event) {
+              if (event.target.status === 200) {
+                alert("callback: " + event.target.response);
+              } else {
+                alert("Error storing adventure: " + event.target.response);
+              }
+            });
+
+            request.setRequestHeader('Content-Type', 'application/json');
+            request.send(requestBody);
+        } else {
+            alert("Please ensure all fields are integers");
+        }
+    } else {
+        alert("Please ensure all fields are filled");
+    }
 }

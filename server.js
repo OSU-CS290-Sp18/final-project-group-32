@@ -48,16 +48,26 @@ app.get('/about', function (req, res) {
   });
 });
 
-app.get('/', function (req, res) {
-    /*var scenarioCollection = mongoDB.collection('travels');
-    scenarioCollection.find().toArray(function (err, scenarios) {
+app.get('/adventure/:id', function (req, res, next) {
+    var adventuresCollection = mongoDB.collection('adventures');
+    adventuresCollection.find({ adventure_id: parseInt(req.params.id) }).toArray(function (err, adven) {
         if (err) {
-            res.status(500).send("Error fetching Database.");
+          res.status(500).send("Error fetching person from DB.");
+        } else if (adven.length > 0) {
+          res.status(200).render('adventure', adven[0]);
         } else {
-            console.log(scenarios);
+          next();
         }
-    });*/
-    res.render('slideshow', {
+    });
+});
+
+app.get('/adventure', function (req, res) {
+  res.status(404).render('404', {
+  });
+});
+
+app.get('/', function (req, res) {
+    res.render('home', {
     });
 });
 
@@ -66,15 +76,37 @@ app.get('*', function (req, res) {
   });
 });
 
+var adventures_count;
 app.post('/create/add',
   function (req, res, next) {
-      /*if (req.body && req.body.photoURL) {
-          console.log();
+      if (req.body && req.body.days && req.body.level && req.body.players && req.body.encounters) {
+
+          var days_gen = [];
+          for(var i = 0; i < parseInt(req.body.days); i++){
+              var encounters = [];
+              for(var j = 0; j < parseInt(req.body.encounters); j++){
+                  encounters.push(i+j);
+              }
+              days_gen.push(encounters);
+          }
+
+          var adventures = mongoDB.collection('adventures');
+          adventures.insertOne(
+              {
+                  adventure_id: adventures_count,
+                  num_days: parseInt(req.body.days),
+                  level: parseInt(req.body.level),
+                  num_players: parseInt(req.body.players),
+                  num_encounters: parseInt(req.body.encounters),
+                  days: days_gen
+              }
+          );
+          adventures_count++;
+
+          res.status(200).send(req.body);
       } else {
-          res.status(400).send("Request must specify ");
-      }*/
-      res.status(200).send(req.body);
-      console.log(req.body);
+          res.status(400).send("Specify all parameters");
+      }
   });
 
 MongoClient.connect(mongoURL, function (err, client) {
@@ -82,7 +114,10 @@ MongoClient.connect(mongoURL, function (err, client) {
     throw err;
   }
   mongoDB = client.db(mongoDBName);
+  mongoDB.collection('adventures').count(function(err, count){
+      adventures_count = count;
+  });
   app.listen(port, function () {
     console.log("== Server listening on port", port);
   });
-})
+});

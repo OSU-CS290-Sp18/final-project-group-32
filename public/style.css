@@ -120,6 +120,11 @@ a:focus {
   background: 056571;
 }
 
+.four {
+  padding: 100px;
+  text-align: center;
+}
+
 img {
     display: block;
     margin-left: auto;
